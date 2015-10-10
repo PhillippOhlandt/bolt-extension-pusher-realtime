@@ -4,8 +4,6 @@ Pusher Extension for Bolt
 
 This [bolt.cm](https://bolt.cm/) extension enables realtime functionality through [Pusher](https://pusher.com) on your website. 
 
--
-
 ### Requirements
 - Bolt 2.x installation
 - [pusher.com](https://pusher.com) account
@@ -76,6 +74,12 @@ For more informations on how to use the Pusher client library, look [here](https
 
 ##### Notes on Record Deleted event
 This event contains only the record ID and minimal record data. There is currently no way to get the contenttype of the record. Look [here](https://github.com/bolt/bolt/issues/4248) for more informations about this bug.
+
+### Third Party Libraries
+Because we cannot pull in other PHP packages in Bolt extensions, we have to include them.
+This are the included third party libraries:
+
+- [pusher-http-php](https://github.com/pusher/pusher-http-php)
 
 ---
 

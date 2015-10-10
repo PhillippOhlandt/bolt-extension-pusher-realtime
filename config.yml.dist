@@ -1,0 +1,8 @@
+pusher_app_id:
+pusher_key:
+pusher_secret:
+pushed_events:
+  records:
+    created: true
+    updated: false
+    deleted: false

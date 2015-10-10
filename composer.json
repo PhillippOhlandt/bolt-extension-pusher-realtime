@@ -1,0 +1,27 @@
+{
+    "name": "ohlandt/pusher-realtime",
+    "description": "This extension enables realtime functionality on your Bolt installation.",
+    "type": "bolt-extension",
+    "require": {
+        "bolt/bolt": ">=2.0.0,<3.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Phillipp Ohlandt",
+            "email": "phillipp.ohlandt@googlemail.com"
+        }
+    ],
+    "keywords": [
+        "pusher", "realtime", "live", "events", "broadcast"
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\Ohlandt\\PusherRealtime\\": "",
+            "Pusher\\" : "lib/Pusher"
+        }
+    }
+}

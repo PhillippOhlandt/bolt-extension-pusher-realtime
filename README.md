@@ -14,7 +14,7 @@ This [bolt.cm](https://bolt.cm/) extension enables realtime functionality throug
 3. Type `pusher-realtime` into the input field
 4. Click on the extension name
 5. Click on "Browse Versions"
-6. Click on "Install This Version	" on the latest stable version
+6. Click on "Install This Version" on the latest stable version
 
 ### Configuration
 1. Go to "Configure Extensions" (Hover over "Extras" menu item)
@@ -40,7 +40,7 @@ This will render the following HTML in your theme to enable and setup the Pusher
 ``` 
 
 ##### Listen on events
-Currently the this events will be pushed based on your configuration.
+Currently this events will be pushed based on your configuration.
 
 - Channel `records`
 	- Event `created`: Record was created
@@ -85,4 +85,4 @@ This are the included third party libraries:
 
 ### License
 
-Thos Bolt extension is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+This Bolt extension is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

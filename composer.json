@@ -23,5 +23,8 @@
             "Bolt\\Extension\\Ohlandt\\PusherRealtime\\": "",
             "Pusher\\" : "lib/Pusher"
         }
+    },
+    "extra": {
+        "bolt-icon": "img/icon-pusher-realtime.png"
     }
 }

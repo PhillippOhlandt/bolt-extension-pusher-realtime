@@ -77,9 +77,9 @@ This event contains only the record ID and minimal record data. There is current
 
 ### Third Party Libraries
 Because we cannot pull in other PHP packages in Bolt extensions, we have to include them.
-This are the included third party libraries:
+Included in this extension is the following third party library:
 
-- [pusher-http-php](https://github.com/pusher/pusher-http-php)
+- [Pusher PHP Library](https://github.com/pusher/pusher-http-php)
 
 ---
 

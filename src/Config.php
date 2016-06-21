@@ -10,7 +10,7 @@ class Config extends ParameterBag
     protected $auth;
     /** @var ParameterBag[] */
     protected $contentTypes;
-    
+
     /**
      * Constructor.
      *
@@ -21,7 +21,7 @@ class Config extends ParameterBag
         parent::__construct();
 
         $this->auth = new ParameterBag($config['auth']);
-        
+
         foreach ($config['events'] as $key => $values) {
             $this->contentTypes[$key] = new ParameterBag($values);
         }

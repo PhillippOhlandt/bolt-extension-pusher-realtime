@@ -11,6 +11,14 @@ use Bolt\Extension\SimpleExtension;
  */
 class PusherRealtimeExtension extends SimpleExtension
 {
+    public function getServiceProviders()
+    {
+        return [
+            $this,
+            new Provider\PusherServiceProvider($this->getConfig()),
+        ];
+    }
+
     /**
      * Such name, much pretty
      *

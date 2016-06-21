@@ -3,6 +3,7 @@
 namespace Bolt\Extension\Ohlandt\PusherRealtime;
 
 use Bolt\Extension\SimpleExtension;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * PusherRealtime extension class.
@@ -17,6 +18,11 @@ class PusherRealtimeExtension extends SimpleExtension
             $this,
             new Provider\PusherServiceProvider($this->getConfig()),
         ];
+    }
+
+    protected function subscribe(EventDispatcherInterface $dispatcher)
+    {
+        $dispatcher->addSubscriber(new Listener\StorageEventListener($this->getContainer(), $this->getConfig()));
     }
 
     /**

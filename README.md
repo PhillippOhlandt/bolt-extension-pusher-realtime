@@ -18,4 +18,4 @@ This [bolt.cm](https://bolt.cm/) extension ...
 
 ### License
 
-This Bolt extension is open-sourced software licensed under the [Your preferred License]
+This Bolt extension is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

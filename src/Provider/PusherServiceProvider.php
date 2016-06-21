@@ -31,7 +31,7 @@ class PusherServiceProvider implements ServiceProviderInterface
      */
     public function register(Application $app)
     {
-        $this->registerPusherAuthConfig($app);
+        $this->registerPusherConfig($app);
         $this->registerPusher($app);
     }
 
@@ -42,7 +42,7 @@ class PusherServiceProvider implements ServiceProviderInterface
     {
     }
 
-    private function registerPusherAuthConfig(Application $app)
+    private function registerPusherConfig(Application $app)
     {
         $app['pusher.config'] = $app->share(
             function () {

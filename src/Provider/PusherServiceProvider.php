@@ -2,9 +2,15 @@
 
 namespace Bolt\Extension\Ohlandt\PusherRealtime\Provider;
 
+use Bolt\Extension\Ohlandt\PusherRealtime\Config;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
+/**
+ * Pusher service provider.
+ *
+ * @author Phillipp Ohlandt <phillipp.ohlandt@googlemail.com>
+ */
 class PusherServiceProvider implements ServiceProviderInterface
 {
     /** @var array */
@@ -26,7 +32,6 @@ class PusherServiceProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $this->registerPusherAuthConfig($app);
-        $this->registerPusherAuthConfigIsset($app);
         $this->registerPusher($app);
     }
 
@@ -35,25 +40,13 @@ class PusherServiceProvider implements ServiceProviderInterface
      */
     public function boot(Application $app)
     {
-
     }
 
     private function registerPusherAuthConfig(Application $app)
     {
-        $app['pusher.config.auth'] = $app->share(
+        $app['pusher.config'] = $app->share(
             function () {
-                return $this->config['auth'];
-            }
-        );
-    }
-
-    private function registerPusherAuthConfigIsset(Application $app)
-    {
-        $app['pusher.config.auth.isset'] = $app->share(
-            function ($app) {
-                return !is_null($app['pusher.config.auth']['app_id']) &&
-                !is_null($app['pusher.config.auth']['key']) &&
-                !is_null($app['pusher.config.auth']['secret']);
+                return new Config($this->config);
             }
         );
     }
@@ -62,10 +55,13 @@ class PusherServiceProvider implements ServiceProviderInterface
     {
         $app['pusher'] = $app->share(
             function ($app) {
+                /** @var Config $config */
+                $config = $app['pusher.config'];
+
                 return new \Pusher(
-                    $app['pusher.config.auth']['key'],
-                    $app['pusher.config.auth']['secret'],
-                    $app['pusher.config.auth']['app_id']
+                    $config->getAuth()->get('key'),
+                    $config->getAuth()->get('secret'),
+                    $config->getAuth()->get('app_id')
                 );
             }
         );

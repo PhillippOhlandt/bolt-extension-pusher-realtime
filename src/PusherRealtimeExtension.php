@@ -28,4 +28,16 @@ class PusherRealtimeExtension extends SimpleExtension
     {
         return 'Pusher Realtime';
     }
+
+    protected function getDefaultConfig()
+    {
+        return [
+            'auth'   => [
+                'app_id' => null,
+                'key'    => null,
+                'secret' => null,
+            ],
+            'events' => [],
+        ];
+    }
 }

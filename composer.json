@@ -34,6 +34,7 @@
     },
     "extra": {
         "bolt-assets": "web",
-        "bolt-class": "Bolt\\Extension\\Ohlandt\\PusherRealtime\\PusherRealtimeExtension"
+        "bolt-class": "Bolt\\Extension\\Ohlandt\\PusherRealtime\\PusherRealtimeExtension",
+        "bolt-icon": "img/icon-pusher-realtime.png"
     }
 }

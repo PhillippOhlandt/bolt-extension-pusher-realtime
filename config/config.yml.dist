@@ -1,0 +1,17 @@
+# Define the credentials for your Pusher application
+auth:
+    app_id:
+    key:
+    secret:
+
+# Define your contenttypes and what events should be pushed.
+# You only need to define the contenttypes you want to use with Pusher.
+events:
+    pages:
+        created: true
+        updated: false
+        deleted: false
+    entries:
+        created: true
+        updated: false
+        deleted: false

@@ -4,13 +4,13 @@ namespace Bolt\Extension\Ohlandt\PusherRealtime\Listener;
 
 use Bolt\Events\StorageEvent;
 use Bolt\Events\StorageEvents;
-use Pimple;
+use Pimple as Container;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class StorageEventListener implements EventSubscriberInterface
 {
-    /** @var Pimple */
-    private $app;
+    /** @var Container */
+    private $container;
 
     /** @var array */
     private $config;
@@ -18,12 +18,12 @@ class StorageEventListener implements EventSubscriberInterface
     /**
      * Initiate the listener with Bolt Application instance and extension config.
      *
-     * @param $app
+     * @param Container $container
      * @param $config
      */
-    public function __construct(Pimple $app, array $config)
+    public function __construct(Container $container, array $config)
     {
-        $this->app = $app;
+        $this->container = $container;
         $this->config = $config;
     }
 

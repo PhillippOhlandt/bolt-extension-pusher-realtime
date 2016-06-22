@@ -2,7 +2,9 @@
 
 namespace Bolt\Extension\Ohlandt\PusherRealtime\Event;
 
-class PusherStorageEvent
+use Symfony\Component\EventDispatcher\Event;
+
+class PusherStorageEvent extends Event
 {
     private $id;
     private $contenttype;

@@ -2,7 +2,7 @@
 
 namespace Bolt\Extension\Ohlandt\PusherRealtime\Event;
 
-class PusherRealtimeEvents
+class PusherEvents
 {
     const SET_STORAGE_EVENT_NAMES = 'pusher.event.storage.names';
 }

@@ -42,23 +42,18 @@ class StorageEventListener implements EventSubscriberInterface
         $created = $event->isCreate();
 
         $storageEvent = new PusherStorageEvent($id, $contenttype, $record);
-        $this->container['dispatcher']->dispatch(PusherEvents::SET_STORAGE_EVENT_NAMES, $storageEvent);
+        $this->container['dispatcher']->dispatch(PusherEvents::PREPARE_STORAGE_EVENT, $storageEvent);
 
         $config = $this->container['pusher.config'];
-        $data = [
-            'id' => $id,
-            'contenttype' => $contenttype,
-            'record' => $record
-        ];
 
         if ($config->isValid() && $contenttype = $config->getContentType($contenttype)) {
             if ($created) {
                 if ($contenttype->get('created')) {
-                    $this->container['pusher']->trigger($storageEvent->getChannelName(), $storageEvent->getCreatedEventName(), $data);
+                    $this->container['pusher']->trigger($storageEvent->getChannelName(), $storageEvent->getCreatedEventName(), $storageEvent->getData());
                 }
             } else {
                 if ($contenttype->get('updated')) {
-                    $this->container['pusher']->trigger($storageEvent->getChannelName(), $storageEvent->getUpdatedEventName(), $data);
+                    $this->container['pusher']->trigger($storageEvent->getChannelName(), $storageEvent->getUpdatedEventName(), $storageEvent->getData());
                 }
             }
         }
@@ -76,18 +71,13 @@ class StorageEventListener implements EventSubscriberInterface
         $record = $event->getContent();
 
         $storageEvent = new PusherStorageEvent($id, $contenttype, $record);
-        $this->container['dispatcher']->dispatch(PusherEvents::SET_STORAGE_EVENT_NAMES, $storageEvent);
+        $this->container['dispatcher']->dispatch(PusherEvents::PREPARE_STORAGE_EVENT, $storageEvent);
 
         $config = $this->container['pusher.config'];
-        $data = [
-            'id' => $id,
-            'contenttype' => $contenttype,
-            'record' => $record
-        ];
 
         if ($config->isValid() && $contenttype = $config->getContentType($contenttype)) {
             if ($contenttype->get('deleted')) {
-                $this->container['pusher']->trigger($storageEvent->getChannelName(), $storageEvent->getDeletedEventName(), $data);
+                $this->container['pusher']->trigger($storageEvent->getChannelName(), $storageEvent->getDeletedEventName(), $storageEvent->getData());
             }
         }
     }

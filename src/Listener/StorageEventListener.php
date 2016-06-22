@@ -4,6 +4,7 @@ namespace Bolt\Extension\Ohlandt\PusherRealtime\Listener;
 
 use Bolt\Events\StorageEvent;
 use Bolt\Events\StorageEvents;
+use Bolt\Extension\Ohlandt\PusherRealtime\Event\PusherStorageEvent;
 use Pimple as Container;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

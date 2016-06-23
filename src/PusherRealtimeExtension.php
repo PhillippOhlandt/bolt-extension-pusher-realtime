@@ -26,6 +26,43 @@ class PusherRealtimeExtension extends SimpleExtension
     }
 
     /**
+     * @inheritdoc
+     *
+     * @return array
+     */
+    protected function registerTwigFunctions()
+    {
+        return [
+            'enable_pusher' => 'enablePusherTwig',
+            'pusher_key' => 'pusherKeyTwig',
+        ];
+    }
+
+    public function enablePusherTwig()
+    {
+        $config = $this->getContainer()['pusher.config'];
+
+        $html = '';
+
+        if ($config->isValid()) {
+            $html .= '<script src="//js.pusher.com/3.1/pusher.min.js"></script>' . PHP_EOL;
+            $html .= '<script>' . PHP_EOL;
+            $html .= 'var pusherKey = "' . $config->getAuth()->get('key') . '";' . PHP_EOL;
+            $html .= 'var pusher = new Pusher(pusherKey, {encrypted: true});' . PHP_EOL;
+            $html .= '</script>' . PHP_EOL;
+        }
+
+        return new \Twig_Markup($html, 'UTF-8');
+    }
+
+    public function pusherKeyTwig()
+    {
+        $config = $this->getContainer()['pusher.config'];
+
+        return $config->getAuth()->get('key');
+    }
+
+    /**
      * Such name, much pretty
      *
      * @return string

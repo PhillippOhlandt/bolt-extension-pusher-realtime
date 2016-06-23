@@ -75,9 +75,9 @@ class PusherRealtimeExtension extends SimpleExtension
     protected function getDefaultConfig()
     {
         return [
-            'auth'   => [
+            'auth' => [
                 'app_id' => null,
-                'key'    => null,
+                'key' => null,
                 'secret' => null,
             ],
             'events' => [],

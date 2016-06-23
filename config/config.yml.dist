@@ -4,6 +4,13 @@ auth:
     key:
     secret:
 
+# Define the Pusher cluster it should use.
+# Options:
+# - mt1 (United States us-east-1) Default
+# - eu (Europe eu-west-1)
+# - ap1 (Asia ap-southeast-1)
+cluster: mt1
+
 # Define your contenttypes and what events should be pushed.
 # You only need to define the contenttypes you want to use with Pusher.
 events:

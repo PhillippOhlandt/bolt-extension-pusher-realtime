@@ -10,6 +10,8 @@ class Config extends ParameterBag
     protected $auth;
     /** @var ParameterBag[] */
     protected $contentTypes;
+    /** @var string */
+    protected $cluster;
 
     /**
      * Constructor.
@@ -21,6 +23,8 @@ class Config extends ParameterBag
         parent::__construct();
 
         $this->auth = new ParameterBag($config['auth']);
+
+        $this->cluster = $config['cluster'];
 
         foreach ($config['events'] as $key => $values) {
             $this->contentTypes[$key] = new ParameterBag($values);
@@ -43,6 +47,14 @@ class Config extends ParameterBag
     public function getAuth()
     {
         return $this->auth;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCluster()
+    {
+        return $this->cluster;
     }
 
     /**

@@ -58,10 +58,17 @@ class PusherServiceProvider implements ServiceProviderInterface
                 /** @var Config $config */
                 $config = $app['pusher.config'];
 
+                $options = [];
+
+                if ($config->getCluster()) {
+                    $options['cluster'] = $config->getCluster();
+                }
+
                 return new \Pusher(
                     $config->getAuth()->get('key'),
                     $config->getAuth()->get('secret'),
-                    $config->getAuth()->get('app_id')
+                    $config->getAuth()->get('app_id'),
+                    $options
                 );
             }
         );

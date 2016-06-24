@@ -12,6 +12,9 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  */
 class PusherRealtimeExtension extends SimpleExtension
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getServiceProviders()
     {
         return [
@@ -26,9 +29,7 @@ class PusherRealtimeExtension extends SimpleExtension
     }
 
     /**
-     * @inheritdoc
-     *
-     * @return array
+     * {@inheritdoc}
      */
     protected function registerTwigFunctions()
     {
@@ -38,6 +39,11 @@ class PusherRealtimeExtension extends SimpleExtension
         ];
     }
 
+    /**
+     * Twig function to enable Pusher in the theme.
+     *
+     * @return \Twig_Markup
+     */
     public function enablePusherTwig()
     {
         $config = $this->getContainer()['pusher.config'];
@@ -55,6 +61,11 @@ class PusherRealtimeExtension extends SimpleExtension
         return new \Twig_Markup($html, 'UTF-8');
     }
 
+    /**
+     * Return Pusher public key.
+     *
+     * @return string|null
+     */
     public function pusherKeyTwig()
     {
         $config = $this->getContainer()['pusher.config'];
@@ -63,7 +74,7 @@ class PusherRealtimeExtension extends SimpleExtension
     }
 
     /**
-     * Such name, much pretty
+     * Such name, much pretty.
      *
      * @return string
      */
@@ -72,6 +83,9 @@ class PusherRealtimeExtension extends SimpleExtension
         return 'Pusher Realtime';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function getDefaultConfig()
     {
         return [

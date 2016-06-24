@@ -17,7 +17,7 @@ class PusherServiceProvider implements ServiceProviderInterface
     private $config;
 
     /**
-     * Service Provider Constructor
+     * Service Provider Constructor.
      *
      * @param array $config
      */
@@ -42,6 +42,11 @@ class PusherServiceProvider implements ServiceProviderInterface
     {
     }
 
+    /**
+     * Register the extension config inside the application container.
+     *
+     * @param Application $app
+     */
     private function registerConfig(Application $app)
     {
         $app['pusher.config'] = $app->share(
@@ -51,6 +56,11 @@ class PusherServiceProvider implements ServiceProviderInterface
         );
     }
 
+    /**
+     * Register the configured Pusher instance inside the application container.
+     *
+     * @param Application $app
+     */
     private function registerPusher(Application $app)
     {
         $app['pusher'] = $app->share(

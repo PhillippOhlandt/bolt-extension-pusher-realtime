@@ -18,7 +18,7 @@ class StorageEventListener implements EventSubscriberInterface
     private $config;
 
     /**
-     * Initiate the listener with Bolt Application instance and extension config.
+     * Initiate the listener with the Container instance and extension config.
      *
      * @param Container $container
      * @param $config
@@ -30,7 +30,8 @@ class StorageEventListener implements EventSubscriberInterface
     }
 
     /**
-     * Handles POST_SAVE storage event
+     * Handles POST_SAVE storage event.
+     * Triggers the created and updated Pusher events.
      *
      * @param StorageEvent $event
      */
@@ -60,7 +61,8 @@ class StorageEventListener implements EventSubscriberInterface
     }
 
     /**
-     * Handles POST_DELETE storage event
+     * Handles POST_DELETE storage event.
+     * Triggers the deleted Pusher event.
      *
      * @param StorageEvent $event
      */

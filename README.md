@@ -50,8 +50,8 @@ For this example, we listen on the `created` event on the `entries` channel and 
 
 ```
 <script>
-	var records = pusher.subscribe('entrues');
-	records.bind('created', function(data) {
+	var entries = pusher.subscribe('entries');
+	entries.bind('created', function(data) {
 		console.log(data);
 	});
 </script>

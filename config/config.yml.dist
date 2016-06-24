@@ -11,6 +11,10 @@ auth:
 # - ap1 (Asia ap-southeast-1)
 cluster: mt1
 
+# Define if the Pusher API should be called encrypted (https) or not.
+# Set to 'false' if you encounter problems, e.g. events won't be sent.
+encrypted: true
+
 # Define your contenttypes and what events should be pushed.
 # You only need to define the contenttypes you want to use with Pusher.
 events:

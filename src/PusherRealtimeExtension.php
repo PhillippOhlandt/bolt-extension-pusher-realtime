@@ -80,6 +80,8 @@ class PusherRealtimeExtension extends SimpleExtension
                 'key' => null,
                 'secret' => null,
             ],
+            'cluster' => 'mt1',
+            'encrypted' => true,
             'events' => [],
         ];
     }

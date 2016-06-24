@@ -64,6 +64,10 @@ class PusherServiceProvider implements ServiceProviderInterface
                     $options['cluster'] = $config->getCluster();
                 }
 
+                if ($config->isEncrypted()) {
+                    $options['encrypted'] = true;
+                }
+
                 return new \Pusher(
                     $config->getAuth()->get('key'),
                     $config->getAuth()->get('secret'),

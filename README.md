@@ -75,6 +75,7 @@ For more information on how to use the Pusher client library, look [here](https:
 ### Twig Functions
 
 `enable_pusher()` - Returns all the JS needed to set up Pusher in the frontend. (See above)
+
 `pusher_key()` - Returns the public key needed to create a new Pusher instance in the frontend.
 
 ---

@@ -38,7 +38,7 @@ This will render the following HTML in your theme to enable and setup the Pusher
 </script>
 ``` 
 
-##### Listen on events
+#### Listen on events
 Currently this events will be pushed based on your configuration.
 
 - Channel `{name of the contenttype}`

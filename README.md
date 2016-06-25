@@ -77,8 +77,6 @@ For more information on how to use the Pusher client library, look [here](https:
 
 `pusher_key()` - Returns the public key needed to create a new Pusher instance in the frontend.
 
----
-
 ### Extend
 This extension does not only trigger Pusher events for content changes. 
 You can hook into it to modify the data and trigger your own events.
@@ -109,6 +107,8 @@ public function onPrepareStorage(PusherStorageEvent $event)
 ```
 
 For all getters and setters, please take a look at `src/Event/PusherStorageEvent.php`.
+
+---
 
 ### License
 

@@ -85,7 +85,7 @@ You can hook into it to modify the data and trigger your own events.
 The configured Pusher instance can be found in `$app['pusher']`. You can use it
 to push your own events or use all other functions from the [Pusher PHP Library](https://github.com/pusher/pusher-http-php).
 
-#### Pusher Realtime Extension Configuration
+#### Extension Configuration
 The configuration of this extension can be found in `$app['pusher.config']`. You could use it to instantiate the Pusher
 service on your own (e.g. to set additional parameters).
 

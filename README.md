@@ -79,6 +79,37 @@ For more information on how to use the Pusher client library, look [here](https:
 
 ---
 
+### Extend
+This extension does not only trigger Pusher events for content changes. 
+You can hook into it to modify the data and trigger your own events.
+
+#### Pusher Service
+The configured Pusher instance can be found in `$app['pusher']`. You can use it
+to push your own events or use all other functions from the [Pusher PHP Library](https://github.com/pusher/pusher-http-php).
+
+#### Pusher Realtime Extension Configuration
+The configuration of this extension can be found in `$app['pusher.config']`. You could use it to instantiate the Pusher
+service on your own (e.g. to set additional parameters).
+
+#### Modifying Event Data
+In case you want to modify the names of the channels and events or add additional data, you can listen to the 
+`PusherEvents::PREPARE_STORAGE_EVENT` event.
+
+```
+protected function subscribe(EventDispatcherInterface $dispatcher)
+{
+    $dispatcher->addListener(PusherEvents::PREPARE_STORAGE_EVENT, [$this, 'onPrepareStorage']);
+}
+
+public function onPrepareStorage(PusherStorageEvent $event)
+{
+    $event->setUpdatedEventName('updated.yoyo');
+    $event->addExtraData('title', $event->getRecord()->title);
+}
+```
+
+For all getters and setters, please take a look at `src/Event/PusherStorageEvent.php`.
+
 ### License
 
 This Bolt extension is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

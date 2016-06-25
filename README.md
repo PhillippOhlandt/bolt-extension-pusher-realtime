@@ -96,10 +96,10 @@ In case you want to modify the names of the channels and events or add additiona
 ```
 protected function subscribe(EventDispatcherInterface $dispatcher)
 {
-    $dispatcher->addListener(PusherEvents::PREPARE_STORAGE_EVENT, [$this, 'onPrepareStorage']);
+    $dispatcher->addListener(PusherEvents::PREPARE_STORAGE_EVENT, [$this, 'onPrepareStorageEvent']);
 }
 
-public function onPrepareStorage(PusherStorageEvent $event)
+public function onPrepareStorageEvent(PusherStorageEvent $event)
 {
     $event->setUpdatedEventName('updated.yoyo');
     $event->addExtraData('title', $event->getRecord()->title);
